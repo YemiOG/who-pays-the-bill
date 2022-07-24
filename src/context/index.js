@@ -37,6 +37,20 @@ class MyProvider extends Component {
     }
   };
 
+  generateLoser = () => {
+    const { players } = this.state;
+    this.setState({
+      result: players[Math.floor(Math.random() * players.length)],
+    });
+  };
+  resetGame = () => {
+    this.setState({
+      stage: 1,
+      players: [],
+      result: "",
+    });
+  };
+
   render() {
     return (
       <>
@@ -46,6 +60,8 @@ class MyProvider extends Component {
             addPlayer: this.addPlayerHandler,
             removePlayer: this.removePlayerHandler,
             next: this.nextHandler,
+            getNewLoser: this.generateLoser,
+            resetGame: this.resetGame,
           }}
         >
           {this.props.children}

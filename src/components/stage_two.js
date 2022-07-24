@@ -8,8 +8,12 @@ const StageTwo = () => {
         <h3>The Loser is:</h3>
         <div>{context.state.result}</div>
       </div>
-      <div className="action_button">START OVER</div>
-      <div className="action_button btn_2">GET NEW LOSER</div>
+      <div onClick={context.resetGame()} className="action_button">
+        START OVER
+      </div>
+      <div onClick={context.getNewLoser()} className="action_button btn_2">
+        GET NEW LOSER
+      </div>
     </>
   );
 };
